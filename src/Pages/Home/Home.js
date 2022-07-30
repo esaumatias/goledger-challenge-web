@@ -1,22 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import NavBar from '../../Components/NavBar/NavBar';
 import { Container } from 'react-bootstrap';
-import { getAssetTypeDataList } from '../../Services/endepointApi';
-
+import CardCar from '../../Components/Cards/CardCar';
 function Home() {
-
-  const getAlbumList = async () => {
-    await getAssetTypeDataList('album')
-      .then((response) => console.log(response.data.result));
-  };
-
-  useEffect(() => {
-    getAlbumList();
-  }, []);
 
   return (
     <Container>
-      <NavBar />  
+      <NavBar />
+      <CardCar /> 
     </Container>
   );
 };
