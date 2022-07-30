@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 
-function NavScrollExample() {
+function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Car Race</Navbar.Brand>
+        <Navbar.Brand href="/">Car Race</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -13,9 +13,9 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Painel de Carros</Nav.Link>
-            <Nav.Link href="#action3">Pilotos</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/cars">Painel de Carros</Nav.Link>
+            <Nav.Link href="/teams">Pilotos</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -32,4 +32,4 @@ function NavScrollExample() {
   );
 }
 
-export default NavScrollExample;
+export default NavBar;
