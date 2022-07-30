@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../../Components/NavBar/NavBar';
 import { Container } from 'react-bootstrap';
-import CardCar from '../../Components/Cards/CardCar';
+import CardCar from '../../Components/Cards/PilotCard';
 function Home() {
 
   return (
