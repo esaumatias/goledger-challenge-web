@@ -27,8 +27,6 @@ function EventCard() {
     return (new Intl.NumberFormat().format(money));
   }
 
-  console.log(allEvent);
-
   const renderEvent = () => {
     if (!allEvent) {
       return undefined;
