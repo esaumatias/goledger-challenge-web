@@ -23,7 +23,10 @@ function NavBar(props) {
               <Nav.Link href="#action2">Painel de Carros</Nav.Link>
             </Link>
             <Link to="/driver">
-            <Nav.Link href="#action3">Pilotos</Nav.Link>
+              <Nav.Link href="#action3">Pilotos</Nav.Link>
+            </Link>
+            <Link to="/team">
+              <Nav.Link href="#action4">Equipe</Nav.Link>
             </Link>
           </Nav>
           <Form className="d-flex">
@@ -35,7 +38,7 @@ function NavBar(props) {
             />
             <Button variant="outline-success">Search</Button>
           </Form>
-          <Link to={ add === "/"  ? "/" : `add${add}` }>
+          <Link to={ add === "/"  ? "/" : `add` }>
             <Button style={{ marginLeft: "10px" }}>{ add === "/"  ? "Voltar" : `Adicionar ${add}` }</Button>
           </Link>
         </Navbar.Collapse>
