@@ -7,7 +7,7 @@ function AppProvider({ children }) {
   const [allPilots, setAllPilots] = useState([]);
   const [allEvent, setAllEvent] = useState([]);
   const [allCars, setAllCars] = useState([]);
-  const [newCar, setNewCar] = useState({});
+  const [listTeam, setListTeam] = useState([]);
 
   const getTeamList = async () => {
     await getAssetTypeDataList("driver").then((response) =>
@@ -18,6 +18,9 @@ function AppProvider({ children }) {
     );
     await getAssetTypeDataList("car").then((response) =>
       setAllCars(response.data.result)
+    );
+    await getAssetTypeDataList("team").then((response) =>
+    setListTeam(response.data.result)
     );
   };
 
@@ -31,12 +34,12 @@ function AppProvider({ children }) {
         setAddSubmitted,
         allPilots,
         setAllPilots,
-        newCar,
-        setNewCar,
         allEvent,
         setAllEvent,
         allCars,
-        setAllCars
+        setAllCars,
+        listTeam,
+        setListTeam
       } }
     >
       { children }
