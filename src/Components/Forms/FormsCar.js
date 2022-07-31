@@ -39,7 +39,7 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function FormsCar() {
-  const { setAddSubmitted, setNewCar, allPilots } = useContext(AppContext);
+  const { setAddSubmitted, allPilots } = useContext(AppContext);
   const [modalShow, setModalShow] = useState(false);
   const [model, setModel] = useState('');
   const [description, setDesciption] = useState('');
@@ -53,16 +53,14 @@ function FormsCar() {
       driver: { id: pilot, description }
     }
 
-  createAsset("car", newCar).then((data) => {
-    if(!data.status === 200) {
-      setAddSubmitted(false);
-    } else {
-      setAddSubmitted(true);
-    }
-    setModalShow(true);
-  })
-    setNewCar('')
-    setAddSubmitted(false);
+    createAsset("car", newCar).then((data) => {
+      if(data.status === 200) {
+        setAddSubmitted(true);
+      } else {
+        setAddSubmitted(false);
+      }
+      setModalShow(true);
+    })
 }
 
   return (

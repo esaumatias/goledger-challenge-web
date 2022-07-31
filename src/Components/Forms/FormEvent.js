@@ -15,11 +15,11 @@ function MyVerticallyCenteredModal(props) {
       {addSubmitted ? (
         <><Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            Piloto criado
+            Evento criado
           </Modal.Title>
         </Modal.Header><Modal.Body>
             <p>
-              Piloto criado com sucesso!
+              Evento criado com sucesso!
             </p>
           </Modal.Body></>
       ) : (
@@ -38,22 +38,26 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-function FormPilot() {
+function FormEvent() {
   const { setAddSubmitted, listTeam } = useContext(AppContext);
   const [modalShow, setModalShow] = useState(false);
   const [name, setName] = useState('');
-  const [description, setDesciption] = useState('');
+  const [prize, setPrize] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
   const [team, setTeam] = useState('');
 
   function submitInfos() {
-    const numberId = Math.floor(Math.random() * 65536);;
-    const newPilot = {
-      id: numberId,
+    const newEvent = {
       name,
-      team: { id: team, description }
+      date: date + "T" + time + ":00Z",
+      prize,
+      winner: { id: team }
     }
 
-    createAsset("driver", newPilot).then((data) => {
+    console.log(newEvent);
+
+    createAsset("event", newEvent).then((data) => {
       if(data.status === 200) {
         setAddSubmitted(true);
       } else {
@@ -66,7 +70,7 @@ function FormPilot() {
   return (
     <Container>
       <div style={{ display: 'flex', justifyContent: "space-between", marginTop: "40px", marginBottom: "20px"}}>
-        <h1>Adicionar Piloto</h1>
+        <h1>Adicionar Evento</h1>
       </div>
       <Form>
         <Col  className="align-items-center">
@@ -74,12 +78,20 @@ function FormPilot() {
             <Form.Label><strong>Nome</strong></Form.Label>
             <Form.Control placeholder="Nome" name="nome"/>
           </Row>
-          <Row style={{ marginBottom: "15px" }} sm='6' className="my-1" onChange={({ target }) => setDesciption(target.value)}>
-            <Form.Label><strong>Descrição</strong></Form.Label>
-            <Form.Control placeholder="Descrição" name="description"/>
+          <Row style={{ marginBottom: "15px" }} sm='6' className="my-1" onChange={({ target }) => setPrize(target.value)}>
+            <Form.Label><strong>Premiação</strong></Form.Label>
+            <Form.Control placeholder="Premiação" name="prize" type="Number" />
+          </Row>
+          <Row style={{ marginBottom: "15px" }} sm='6' className="my-1" onChange={({ target }) => setDate(target.value)}>
+            <Form.Label><strong>Data</strong></Form.Label>
+            <Form.Control placeholder="data" name="date" type="Date" />
+          </Row>
+          <Row style={{ marginBottom: "15px" }} sm='6' className="my-1" onChange={({ target }) => setTime(target.value)}>
+            <Form.Label><strong>Horário</strong></Form.Label>
+            <Form.Control placeholder="time" name="time" type="Time" />
           </Row>
           <Row style={{ marginBottom: "15px" }} sm='6' className="my-1">
-            <Form.Label><strong>Team</strong></Form.Label>
+            <Form.Label><strong>Team vencedor</strong></Form.Label>
             <Form.Select aria-label="Default select example" onChange={({ target }) => setTeam(target.value)} name='driver'>
               { listTeam.map((team, index) => (
                 <option value={ team.id } key={ index }>{ team.name }</option>
@@ -99,4 +111,4 @@ function FormPilot() {
   );
 };
 
-export default FormPilot;
+export default FormEvent;

@@ -20,7 +20,7 @@ function AppProvider({ children }) {
       setAllCars(response.data.result)
     );
     await getAssetTypeDataList("team").then((response) =>
-    setListTeam(response.data.result)
+      setListTeam(response.data.result)
     );
   };
 

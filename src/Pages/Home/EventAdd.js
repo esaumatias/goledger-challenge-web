@@ -1,15 +1,15 @@
 import React from 'react';
+import FormsEvent from '../../Components/Forms/FormEvent';
 import NavBar from '../../Components/NavBar/NavBar';
 import { Container } from 'react-bootstrap';
-import CardCar from '../../Components/Cards/EventCard';
-function Home() {
 
+function AddCar() {
   return (
     <Container>
-      <NavBar add="Event" />
-      <CardCar /> 
+      <NavBar add="/" />
+      <FormsEvent />
     </Container>
-  );
-};
+  )
+}
 
-export default Home;
+export default AddCar;
