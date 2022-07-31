@@ -7,6 +7,7 @@ function TeamPage() {
   return (
     <Container>
       <NavBar add="Driver" />
+      <h1>Pilotos</h1>
       <PilotCard />
     </Container>
   );

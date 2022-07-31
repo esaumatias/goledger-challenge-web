@@ -7,6 +7,7 @@ function CarsPage() {
   return (
     <Container>
       <NavBar add="Carro" />
+      <h1>Carros</h1>
       <CardCar />
     </Container>
   );

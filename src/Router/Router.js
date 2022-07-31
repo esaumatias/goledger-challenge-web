@@ -12,8 +12,8 @@ function Router() {
     <Routes>
       <Route exact path="/" element={ <Home /> } />
       <Route exact path="/addEvent" element={ <EventAdd /> } />
-      <Route exact path="/teams" element={ <DriverPage /> } />
-      <Route exact path="/teams/addDriver" element={ <AddDriver /> } />
+      <Route exact path="/driver" element={ <DriverPage /> } />
+      <Route exact path="/driver/addDriver" element={ <AddDriver /> } />
       <Route exact path="/cars" element={ <CarsPage /> } />
       <Route exact path="/cars/addCarro" element={ <Addcar /> } />
     </Routes>

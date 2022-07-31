@@ -22,7 +22,7 @@ function NavBar(props) {
             <Link to="/cars">
               <Nav.Link href="#action2">Painel de Carros</Nav.Link>
             </Link>
-            <Link to="/teams">
+            <Link to="/driver">
             <Nav.Link href="#action3">Pilotos</Nav.Link>
             </Link>
           </Nav>
