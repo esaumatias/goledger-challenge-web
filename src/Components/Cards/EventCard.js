@@ -18,8 +18,6 @@ function EventCard() {
     return `${day}/${month}/${year}`;
   };
 
-  console.log(allEvent[0]['@key']);
-
   const deleteItem = async (id) => {
     await deleteAssetByID(id).then((response) =>
       setReloadPage(true)
@@ -52,7 +50,6 @@ function EventCard() {
                 </Card.Text>
               </Card.Body>
               <Card.Footer>
-                <button type="button" class="btn btn-warning">Warning</button>
                 <button type="button" class="btn btn-danger" onClick={() => deleteItem(event['@key'])}>apagar</button>
               </Card.Footer>
             </Card>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AppContext from '../../Context/AppContext';
 import { deleteAssetByID } from '../../Services/endepointApi';
+import { Link } from 'react-router-dom';
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -29,7 +30,9 @@ function CardCar() {
                 <Card.Title>{ car.model }</Card.Title>
               </Card.Body>
               <Card.Footer>
-                <button type="button" class="btn btn-warning">Warning</button>
+                <Link to={`/cars/update/${car.id}`}>
+                  <button type="button" class="btn btn-warning">editar</button>
+                </Link>
                 <button type="button" class="btn btn-danger" onClick={() => deleteItem(car['@key'])}>apagar</button>
               </Card.Footer>
             </Card>

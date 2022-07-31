@@ -1,18 +1,18 @@
 import React from 'react';
-import FormsPilot from '../../Components/Forms/FormPilot';
+import FormsCar from '../../Components/Forms/FormsCar';
 import NavBar from '../../Components/NavBar/NavBar';
 import { Container } from 'react-bootstrap';
 
-function AddCar() {
+function UpdateCar() {
   return (
     <Container>
       <NavBar add="/" />
       <div style={{ display: 'flex', justifyContent: "space-between", marginBottom: "20px"}}>
-        <h1>Adicionar Piloto</h1>
+        <h1>Atualizar Carro</h1>
       </div>
-      <FormsPilot />
+      <FormsCar />
     </Container>
   )
 }
 
-export default AddCar;
+export default UpdateCar;

@@ -7,6 +7,9 @@ function AddCar() {
   return (
     <Container>
       <NavBar add="/" />
+      <div style={{ display: 'flex', justifyContent: "space-between", marginBottom: "20px"}}>
+        <h1>Adicionar Evento</h1>
+      </div>
       <FormsEvent />
     </Container>
   )

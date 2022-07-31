@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { createAsset } from '../../Services/endepointApi';
-import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap'
+import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
 import AppContext from '../../Context/AppContext';
 
 function MyVerticallyCenteredModal(props) {
@@ -68,9 +68,6 @@ function FormEvent() {
 
   return (
     <Container>
-      <div style={{ display: 'flex', justifyContent: "space-between", marginTop: "40px", marginBottom: "20px"}}>
-        <h1>Adicionar Evento</h1>
-      </div>
       <Form>
         <Col  className="align-items-center">
           <Row style={{ marginBottom: "15px" }} sm='6' className="my-1" onChange={({ target }) => setName(target.value)}>

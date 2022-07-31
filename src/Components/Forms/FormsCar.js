@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { createAsset } from '../../Services/endepointApi';
-import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap'
+import { createAsset, updateAsset } from '../../Services/endepointApi';
+import { Container, Form, Row, Col, Button, Modal } from 'react-bootstrap';
+import { useParams } from "react-router-dom";
 import AppContext from '../../Context/AppContext';
 
 function MyVerticallyCenteredModal(props) {
   const { addSubmitted } = useContext(AppContext);
+  const { id } = useParams();
   return (
     <Modal
       {...props}
@@ -15,11 +17,11 @@ function MyVerticallyCenteredModal(props) {
       {addSubmitted ? (
         <><Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            Carro criado
+            { id ? "Carro atualizado" : "Carro criado" }
           </Modal.Title>
         </Modal.Header><Modal.Body>
             <p>
-              Carro criado com sucesso!
+              { id ? "Carro atualizado com sucesso!" : "Carro criado com sucesso!" }
             </p>
           </Modal.Body></>
       ) : (
@@ -40,6 +42,7 @@ function MyVerticallyCenteredModal(props) {
 
 function FormsCar() {
   const { setAddSubmitted, allPilots, setReloadPage } = useContext(AppContext);
+  const { id } = useParams();
   const [modalShow, setModalShow] = useState(false);
   const [model, setModel] = useState('');
   const [description, setDesciption] = useState('');
@@ -48,12 +51,12 @@ function FormsCar() {
   function submitInfos() {
     const numberId = Math.floor(Math.random() * 65536);;
     const newCar = {
-      id: numberId,
+      id: id ? id : numberId,
       model,
       driver: { id: pilot, description }
     }
-
-    createAsset("car", newCar).then((data) => {
+    const funcao = id ? updateAsset : createAsset;
+    funcao("car", newCar).then((data) => {
       if(data.status === 200) {
         setAddSubmitted(true);
       } else {
@@ -66,9 +69,6 @@ function FormsCar() {
 
   return (
     <Container>
-      <div style={{ display: 'flex', justifyContent: "space-between", marginTop: "40px", marginBottom: "20px"}}>
-        <h1>Adicionar Carro</h1>
-      </div>
       <Form>
         <Col  className="align-items-center">
           <Row style={{ marginBottom: "15px" }} sm='6' className="my-1" onChange={({ target }) => setModel(target.value)}>
