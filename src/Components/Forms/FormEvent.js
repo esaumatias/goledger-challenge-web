@@ -39,7 +39,7 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function FormEvent() {
-  const { setAddSubmitted, listTeam } = useContext(AppContext);
+  const { setAddSubmitted, listTeam, setReloadPage } = useContext(AppContext);
   const [modalShow, setModalShow] = useState(false);
   const [name, setName] = useState('');
   const [prize, setPrize] = useState('');
@@ -55,8 +55,6 @@ function FormEvent() {
       winner: { id: team }
     }
 
-    console.log(newEvent);
-
     createAsset("event", newEvent).then((data) => {
       if(data.status === 200) {
         setAddSubmitted(true);
@@ -64,6 +62,7 @@ function FormEvent() {
         setAddSubmitted(false);
       }
       setModalShow(true);
+      setReloadPage(true);
     })
   }
 

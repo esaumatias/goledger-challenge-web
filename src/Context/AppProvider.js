@@ -8,6 +8,7 @@ function AppProvider({ children }) {
   const [allEvent, setAllEvent] = useState([]);
   const [allCars, setAllCars] = useState([]);
   const [listTeam, setListTeam] = useState([]);
+  const [reloadPage ,setReloadPage] = useState(false);
 
   const getTeamList = async () => {
     await getAssetTypeDataList("driver").then((response) =>
@@ -26,7 +27,8 @@ function AppProvider({ children }) {
 
   useEffect(() => {
     getTeamList();
-  }, []);
+    setReloadPage(false);
+  }, [reloadPage]);
   return (
     <AppContext.Provider
       value={ {
@@ -39,7 +41,9 @@ function AppProvider({ children }) {
         allCars,
         setAllCars,
         listTeam,
-        setListTeam
+        setListTeam,
+        reloadPage,
+        setReloadPage
       } }
     >
       { children }

@@ -39,7 +39,7 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function FormsCar() {
-  const { setAddSubmitted, allPilots } = useContext(AppContext);
+  const { setAddSubmitted, allPilots, setReloadPage } = useContext(AppContext);
   const [modalShow, setModalShow] = useState(false);
   const [model, setModel] = useState('');
   const [description, setDesciption] = useState('');
@@ -60,6 +60,7 @@ function FormsCar() {
         setAddSubmitted(false);
       }
       setModalShow(true);
+      setReloadPage(true);
     })
 }
 
