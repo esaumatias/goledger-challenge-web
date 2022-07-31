@@ -30,7 +30,7 @@ function CardTeam() {
                 <Card.Title>{ team.name }</Card.Title>
               </Card.Body>
               <Card.Footer>
-                <Link to={`/cars/update/${team.id}`}>
+                <Link to={`/team/update/${team.id}`}>
                   <button type="button" class="btn btn-warning">editar</button>
                 </Link>
                 <button type="button" class="btn btn-danger" onClick={() => deleteItem(team['@key'])}>apagar</button>
