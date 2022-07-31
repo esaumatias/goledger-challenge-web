@@ -6,7 +6,7 @@ import PilotCard from '../../Components/Cards/PilotCard';
 function TeamPage() {
   return (
     <Container>
-      <NavBar />
+      <NavBar add="Piloto" />
       <PilotCard />
     </Container>
   );

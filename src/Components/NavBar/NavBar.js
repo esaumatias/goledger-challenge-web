@@ -1,7 +1,10 @@
 import React from 'react';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function NavBar() {
+function NavBar(props) {
+    const { add } = props;
+  
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -13,9 +16,15 @@ function NavBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/cars">Painel de Carros</Nav.Link>
-            <Nav.Link href="/teams">Pilotos</Nav.Link>
+            <Link to="/">
+              <Nav.Link href="action1">Home</Nav.Link>
+            </Link>
+            <Link to="/cars">
+              <Nav.Link href="#action2">Painel de Carros</Nav.Link>
+            </Link>
+            <Link to="/teams">
+            <Nav.Link href="#action3">Pilotos</Nav.Link>
+            </Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -26,6 +35,9 @@ function NavBar() {
             />
             <Button variant="outline-success">Search</Button>
           </Form>
+          <Link to={ add === "/"  ? "/" : `add${add}` }>
+            <Button style={{ marginLeft: "10px" }}>{ add === "/"  ? "Voltar" : `Adicionar ${add}` }</Button>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

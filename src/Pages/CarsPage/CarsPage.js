@@ -6,7 +6,7 @@ import CardCar from '../../Components/Cards/CardCar';
 function CarsPage() {
   return (
     <Container>
-      <NavBar />
+      <NavBar add="Carro" />
       <CardCar />
     </Container>
   );

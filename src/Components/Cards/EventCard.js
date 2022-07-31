@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { getAssetTypeDataList } from "../../Services/endepointApi";
-
+import React, { useContext } from "react";
+import AppContext from '../../Context/AppContext';
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 function EventCard() {
-  const [allEvent, setAllEvent] = useState([]);
-  const getEventList = async () => {
-    await getAssetTypeDataList("event").then((response) =>
-      setAllEvent(response.data.result)
-    );
-  };
+  const { allEvent } = useContext(AppContext);
   
   const convertDateFormat = (date) => {
     const numberEight = 8;
@@ -34,12 +28,14 @@ function EventCard() {
       return <h1>No results.</h1>;
 }
     return (
-      <Row xs={1} md={4} className="g-4">
+      <Row xs={1} md={4} className="g-4" style={{ display: "flex", justifyContent: "center", textAlign: "center", marginTop: "25px" }}>
         {allEvent.map((event, idx) => (
           <Col key={ idx }>
             <Card>
-              <Card.Body>
+              <Card.Header>
                 <Card.Title>{ event.name }</Card.Title>
+              </Card.Header>
+              <Card.Body>
                 <Card.Text>
                   <strong>{ `Prêmio de R$ ${convertMoney(event.prize)},00` }</strong>
                 </Card.Text>
@@ -54,9 +50,6 @@ function EventCard() {
     )
   };
 
-  useEffect(() => {
-    getEventList();
-  }, []);
   return (
     <>
       { renderEvent() }

@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { getAssetTypeDataList } from "../../Services/endepointApi";
+import React, { useContext } from "react";
+import AppContext from '../../Context/AppContext';
 
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 function CardCar() {
-  const [allCars, setAllCars] = useState([]);
-  const getCarsList = async () => {
-    await getAssetTypeDataList("car").then((response) =>
-      setAllCars(response.data.result)
-    );
-  };
+  const { allCars } = useContext(AppContext);
 
   const renderCar = () => {
     if (!allCars) {
@@ -20,7 +15,7 @@ function CardCar() {
       return <h1>No results.</h1>;
     }
     return (
-      <Row xs={1} md={4} className="g-4">
+      <Row xs={1} md={4} className="g-4" style={{ display: "flex", justifyContent: "center", textAlign: "center", marginTop: "25px" }}>
         {allCars.map((car, idx) => (
           <Col key={ idx }>
             <Card>
@@ -34,9 +29,6 @@ function CardCar() {
     )
   };
 
-  useEffect(() => {
-    getCarsList();
-  }, []);
   return (
     <>
       { renderCar() }
