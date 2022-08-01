@@ -29,6 +29,8 @@ function AppProvider({ children }) {
     );
   };
 
+  console.log(allEvent);
+
   useEffect(() => {
     getTeamList();
     setReloadPage(false);

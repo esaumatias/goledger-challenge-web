@@ -89,7 +89,7 @@ function NavBar(props) {
             />
           </Form>
           <Link to={ add === "/"  ? "/" : `add` } >
-            <Button>{ add === "/"  ? "Voltar" : `Adicionar ${add}` }</Button>
+            <Button variant="dark">{ add === "/"  ? "Voltar" : `Adicionar ${add}` }</Button>
           </Link>
         </Navbar.Collapse>
       </Container>

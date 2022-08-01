@@ -2,27 +2,32 @@
 
 In this challenge you will create a web interface to a blockchain application. In this application you must implement a race event, car and driver dashboard.
 
-# Requirements
+## How to run the application:
 
-- Your application should be able to add/remove/edit and show all cars, drivers, teams and events;
-- Use **React** (all UI libraries are allowed);
+1) Clone the repository: `git clone git@github.com:esaumatias/goledger-challenge-web.git`
 
-## Instructions
+2) Enter the project directory: `cd goledger-challenge-web/`
 
-- Fork the repository [https://github.com/goledgerdev/goledger-challenge-web](https://github.com/goledgerdev/goledger-challenge-web)
-    - Fork it, do **NOT** clone it, since you will need to send us your forked repository
-    - If you **cannot** fork it, create a private repository and give access to `samuelvenzi` and `lucas-campelo`.
-- Create an web application using React. You will implement the basic operations provided by the API, which are `Create`, `Update`, `Delete` and `Search`.
-- Improve your application with a beautiful UI.
+3) Install dependencies
 
-## Server
+**npm:**
 
-The data are obtained using a rest server at this address: `http://ec2-100-25-136-128.compute-1.amazonaws.com`
+```bash
+npm install
+```
 
-Also, a Swagger with the endpoints specifications for the operations is provided at this address: `http://ec2-100-25-136-128.compute-1.amazonaws.com/api-docs/`.
+4) Run the server locally: `npm start`
 
-Tip: execute each operation in the Swagger for information on payload format and endpoint addresses.
+5) Open `http://localhost:3000` on your browser
 
-## Complete the challenge
+## Screenshots:
+![Event Page](/screenshots/EventPage.png)
+![Add Page](/screenshots/ADDPage.png)
+![Alert Page](/screenshots/AlertAddPage.png)
 
-To complete the challenge, you must send us the link to your forked repository with the code of your application. Please, provide instructions to execute the code.
+## Technologies/Dependencies:
+
+| Name | Link |
+| -- | -- |
+| React | https://pt-br.reactjs.org/ |
+| axios | https://github.com/axios/axios |
