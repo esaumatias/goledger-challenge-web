@@ -6,7 +6,7 @@ function Home() {
 
   return (
     <Container>
-      <NavBar add="Event" />
+      <NavBar add="Evento" />
       <h1>Eventos</h1>
       <CardCar /> 
     </Container>

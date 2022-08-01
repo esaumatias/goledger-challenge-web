@@ -9,6 +9,10 @@ function AppProvider({ children }) {
   const [allCars, setAllCars] = useState([]);
   const [listTeam, setListTeam] = useState([]);
   const [reloadPage ,setReloadPage] = useState(false);
+  const [newListPilots, setNewListPilots] = useState([]);
+  const [newListEvent, setNewListEvent] = useState([]);
+  const [newListCars, setNewListCars] = useState([]);
+  const [newListTeam, setNewListTeam] = useState([]);
 
   const getTeamList = async () => {
     await getAssetTypeDataList("driver").then((response) =>
@@ -24,8 +28,6 @@ function AppProvider({ children }) {
       setListTeam(response.data.result)
     );
   };
-
-  console.log(listTeam);
 
   useEffect(() => {
     getTeamList();
@@ -45,7 +47,15 @@ function AppProvider({ children }) {
         listTeam,
         setListTeam,
         reloadPage,
-        setReloadPage
+        setReloadPage,
+        newListPilots,
+        setNewListPilots,
+        newListEvent,
+        setNewListEvent,
+        newListCars,
+        setNewListCars,
+        newListTeam,
+        setNewListTeam
       } }
     >
       { children }

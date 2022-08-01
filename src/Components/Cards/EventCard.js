@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 function EventCard() {
-  const { allEvent, setReloadPage } = useContext(AppContext);
+  const { allEvent, setReloadPage, newListEvent } = useContext(AppContext);
   
   const convertDateFormat = (date) => {
     const numberEight = 8;
@@ -37,7 +37,7 @@ function EventCard() {
 
     return (
       <Row xs={1} md={3} className="g-4" style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
-        {allEvent.map((event, idx) => (
+        {newListEvent.map((event, idx) => (
           <Col key={ idx }>
             <Card>
               <Card.Header>

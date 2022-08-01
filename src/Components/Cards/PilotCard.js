@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 function PilotCard() {
-  const { allPilots, setReloadPage } = useContext(AppContext);
+  const { allPilots, setReloadPage, newListPilots } = useContext(AppContext);
 
   const deleteItem = async (id) => {
     await deleteAssetByID(id).then((response) =>
@@ -23,7 +23,7 @@ function PilotCard() {
     }
     return (
       <Row xs={1} md={3} className="g-4" style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
-        {allPilots.map((pilot, idx) => (
+        {newListPilots.map((pilot, idx) => (
           <Col key={ idx }>
             <Card>
               <Card.Body>

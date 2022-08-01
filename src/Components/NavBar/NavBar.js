@@ -1,10 +1,59 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
+import AppContex from '../../Context/AppContext';
 import { Link } from 'react-router-dom';
 
 function NavBar(props) {
     const { add } = props;
-  
+    const {
+      allPilots,
+      allEvent,
+      allCars,
+      listTeam,
+      setNewListPilots,
+      setNewListEvent,
+      setNewListCars,
+      setNewListTeam
+    } = useContext(AppContex);
+
+    const checkPage = () => {
+      if (add === "Piloto") return setNewListPilots;
+      if (add === "Equipe") return setNewListTeam;
+      if (add === "Evento") return setNewListEvent;
+      if (add === "Carro") return setNewListCars;
+    }
+
+    const checkDataPage = () => {
+      if (add === "Piloto") return allPilots;
+      if (add === "Equipe") return listTeam;
+      if (add === "Evento") return allEvent;
+      if (add === "Carro") return allCars;
+    }
+    
+    const filter = (value) => {
+      checkPage()(
+        checkDataPage()?.filter(
+          (fa) => fa.name?.toLowerCase().includes(value.toLowerCase())
+          || fa.model?.toLowerCase().includes(value.toLowerCase()),
+        ),
+      );
+    }
+
+    useEffect(() => {
+      setNewListPilots(allPilots);
+      setNewListEvent(allEvent);
+      setNewListCars(allCars);
+      setNewListTeam(listTeam);
+    }, [
+      allPilots,
+      allEvent,
+      allCars,
+      listTeam,
+      setNewListPilots,
+      setNewListEvent,
+      setNewListCars,
+      setNewListTeam
+    ]);
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -17,10 +66,10 @@ function NavBar(props) {
             navbarScroll
           >
             <Link to="/">
-              <Nav.Link href="action1">Home</Nav.Link>
+              <Nav.Link href="action1">Eventos</Nav.Link>
             </Link>
             <Link to="/cars">
-              <Nav.Link href="#action2">Painel de Carros</Nav.Link>
+              <Nav.Link href="#action2">Carros</Nav.Link>
             </Link>
             <Link to="/driver">
               <Nav.Link href="#action3">Pilotos</Nav.Link>
@@ -35,11 +84,12 @@ function NavBar(props) {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onInput={e => filter(e.target.value)}
+              style={{ }}
             />
-            <Button variant="outline-success">Search</Button>
           </Form>
-          <Link to={ add === "/"  ? "/" : `add` }>
-            <Button style={{ marginLeft: "10px" }}>{ add === "/"  ? "Voltar" : `Adicionar ${add}` }</Button>
+          <Link to={ add === "/"  ? "/" : `add` } >
+            <Button>{ add === "/"  ? "Voltar" : `Adicionar ${add}` }</Button>
           </Link>
         </Navbar.Collapse>
       </Container>

@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 function CardCar() {
-  const { allCars, setReloadPage } = useContext(AppContext);
+  const { allCars, setReloadPage, newListCars } = useContext(AppContext);
 
   const renderCar = () => {
     if (!allCars) {
@@ -23,7 +23,7 @@ function CardCar() {
   }
     return (
       <Row xs={1} md={3} className="g-4" style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
-        {allCars.map((car, idx) => (
+        {newListCars.map((car, idx) => (
           <Col key={ idx }>
             <Card>
               <Card.Body>

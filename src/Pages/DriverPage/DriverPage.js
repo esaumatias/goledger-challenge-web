@@ -6,7 +6,7 @@ import PilotCard from '../../Components/Cards/PilotCard';
 function DrivePage() {
   return (
     <Container>
-      <NavBar add="Driver" />
+      <NavBar add="Piloto" />
       <h1>Pilotos</h1>
       <PilotCard />
     </Container>

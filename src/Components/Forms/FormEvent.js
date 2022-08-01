@@ -87,7 +87,7 @@ function FormEvent() {
             <Form.Control placeholder="time" name="time" type="Time" />
           </Row>
           <Row style={{ marginBottom: "15px" }} sm='6' className="my-1">
-            <Form.Label><strong>Team vencedor</strong></Form.Label>
+            <Form.Label><strong>Equipe vencedora</strong></Form.Label>
             <Form.Select aria-label="Default select example" onChange={({ target }) => setTeam(target.value)} name='driver'>
               { listTeam.map((team, index) => (
                 <option value={ team.id } key={ index }>{ team.name }</option>
