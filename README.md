@@ -31,3 +31,5 @@ npm install
 | -- | -- |
 | React | https://pt-br.reactjs.org/ |
 | axios | https://github.com/axios/axios |
+| React-Bootstrap | https://react-bootstrap.github.io/ |
+| react-router-dom | https://v5.reactrouter.com/web/guides/quick-start |
