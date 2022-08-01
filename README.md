@@ -21,9 +21,9 @@ npm install
 5) Open `http://localhost:3000` on your browser
 
 ## Screenshots:
-![Event Page](/screenshots/EventPage.png)
-![Add Page](/screenshots/ADDPage.png)
-![Alert Page](/screenshots/AlertAddPage.png)
+![Event Page](/src/screenshots/EventPage.png)
+![Add Page](/src/screenshots/ADDPage.png)
+![Alert Page](/src/screenshots/AlertAddPage.png)
 
 ## Technologies/Dependencies:
 
